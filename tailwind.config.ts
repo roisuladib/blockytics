@@ -1,20 +1,39 @@
-import type { Config } from "tailwindcss";
+import { nextui } from '@nextui-org/theme';
+
+import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+   content: [
+      './src/**/*.{js,ts,jsx,tsx,mdx}',
+      './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
+   ],
+   theme: {
+      extend: {
+         fontFamily: {
+            sans: ['var(--font-sans)', ...fontFamily.sans],
+            mono: ['var(--font-mono)', ...fontFamily.mono],
+            serif: ['var(--font-serif)', ...fontFamily.serif],
+         },
+         animation: {
+            'appearance-row-in': 'appearance-row-in 0.5s cubic-bezier(0.550, 0.055, 0.675, 0.190)',
+         },
+         keyframes: {
+            'appearance-row-in': {
+               '0%': {
+                  opacity: '0',
+                  transform: 'scaleX(0.5)',
+               },
+               '100%': {
+                  opacity: '1',
+                  transform: 'scaleX(1)',
+               },
+            },
+         },
       },
-    },
-  },
-  plugins: [],
+   },
+   darkMode: 'class',
+   plugins: [nextui()],
 };
+
 export default config;
