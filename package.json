@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "dotenv -e .env.local -e src/configs/envs/.env.${NETWORK:-eth} -- next dev --turbo -p 5000",
     "dev:sh": "./tools/scripts/dev.sh",
-    "build": "next build",
+    "build": "dotenv -e .env.local -e src/configs/envs/.env.${NETWORK:-eth} -- next build",
     "start": "dotenv -e .env.local -e src/configs/envs/.env.${NETWORK:-eth} -- next start",
     "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix"
   },
