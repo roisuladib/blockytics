@@ -22,8 +22,6 @@ declare global {
    }
 
    export interface IProcessEnv {
-      NEXT_PUBLIC_API_URL: string;
-      NEXT_PUBLIC_WS_URL: string;
       NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID: string;
 
       NEXT_PUBLIC_APP_INSTANCE: string;
