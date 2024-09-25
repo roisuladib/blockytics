@@ -8,13 +8,22 @@ import { Skeleton } from '@nextui-org/skeleton';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 
 import { Flex, Icon } from '^components';
-import { getQueryClient } from '^lib';
+import { fetcher, getQueryClient } from '^lib';
 import type { Params } from '^types';
 import { cn } from '^utils';
 
 import { title } from '^components/primitives';
 import BlockDetails from '^components/ui/blocks/details/block-details';
 import { getBlock } from '^lib/blocks/getBlock';
+import type { Block } from '^types/api/block';
+
+export async function generateStaticParams({ params: { height } }: Params<{ height: string }>) {
+   const data = await fetcher({ url: `/blocks/${height}` });
+
+   return data.items.map((item: Block) => ({
+      height: item.height,
+   }));
+}
 
 export default async function BlockDetailsPage({ params: { height } }: Params<{ height: string }>) {
    const queryClient = getQueryClient();
