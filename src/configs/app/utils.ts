@@ -3,7 +3,7 @@ import { FILE_EXTENSION, isBrowser } from '^lib';
 export const replaceQuotes = (value: string | undefined) => value?.replaceAll("'", '"');
 
 export function getEnvValue(envName: keyof IProcessEnv) {
-   const envs = process.env ?? {};
+   const envs = (isBrowser() ? window.__envs : process.env) ?? {};
 
    if (isBrowser() && envs.NEXT_PUBLIC_APP_INSTANCE === 'pw') {
       const storageValue = localStorage.getItem(envName);
