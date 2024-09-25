@@ -16,8 +16,6 @@ import { title } from '^components/primitives';
 import BlockDetails from '^components/ui/blocks/details/block-details';
 import { getBlock } from '^lib/blocks/getBlock';
 
-export const dynamicParams = true;
-
 export default async function BlockDetailsPage({ params: { height } }: Params<{ height: string }>) {
    const queryClient = getQueryClient();
 

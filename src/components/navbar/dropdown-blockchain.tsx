@@ -28,7 +28,7 @@ const items = [
       label: 'Top Accounts',
    },
    {
-      href: '/verfied-contracts',
+      href: '/verified-contracts',
       icon: 'server',
       label: 'Verfied contracts',
    },
