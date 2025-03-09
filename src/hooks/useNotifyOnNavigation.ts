@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 import config from '^configs/app';
-import getQueryParamString from '^lib/router/getQueryParamString';
+import { getQueryParamString } from '^lib/router';
 
 export function useNotifyOnNavigation() {
    const pathname = usePathname();

@@ -9,7 +9,7 @@ type PushStateInput = [data: any, unused: string, url?: string | URL | null | un
 export default function ProgressBar() {
    const height = '3px';
    const color = 'hsl(212.02 100% 46.67% / 1)';
-   // const color = 'hsl(var(--nextui-primary) / var(--nextui-primary-opacity, var(--tw-bg-opacity)))';
+   // const color = 'hsl(var(--heroui-primary) / var(--heroui-primary-opacity, var(--tw-bg-opacity)))';
 
    const styles = (
       <style>

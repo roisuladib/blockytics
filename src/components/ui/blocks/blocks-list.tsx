@@ -7,12 +7,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-import { Button } from '@nextui-org/button';
-import { Link as NextLink } from '@nextui-org/link';
-import { Spinner } from '@nextui-org/spinner';
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@nextui-org/table';
-import { Tab, Tabs } from '@nextui-org/tabs';
-import { useClipboard } from '@nextui-org/use-clipboard';
+import { Button } from "@heroui/button";
+import { Link as NextLink } from "@heroui/link";
+import { Spinner } from "@heroui/spinner";
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@heroui/table";
+import { Tab, Tabs } from "@heroui/tabs";
+import { useClipboard } from "@heroui/use-clipboard";
 
 import { useSuspenseQuery } from '@tanstack/react-query';
 import BigNumber from 'bignumber.js';

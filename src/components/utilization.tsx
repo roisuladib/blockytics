@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
-import { Progress } from '@nextui-org/progress';
-import { Skeleton } from '@nextui-org/skeleton';
+import { Progress } from "@heroui/progress";
+import { Skeleton } from "@heroui/skeleton";
 
 import _ from 'lodash';
 

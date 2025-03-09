@@ -2,10 +2,10 @@ import { Suspense } from 'react';
 
 import NextLink from 'next/link';
 
-import { Button } from '@nextui-org/button';
-import { Input } from '@nextui-org/input';
-import { Kbd } from '@nextui-org/kbd';
-import { Link } from '@nextui-org/link';
+import { Button } from "@heroui/button";
+import { Input } from "@heroui/input";
+import { Kbd } from "@heroui/kbd";
+import { Link } from "@heroui/link";
 import {
    NavbarBrand,
    NavbarContent,
@@ -14,9 +14,9 @@ import {
    NavbarMenuItem,
    NavbarMenuToggle,
    Navbar as NextUINavbar,
-} from '@nextui-org/navbar';
-import { Skeleton } from '@nextui-org/skeleton';
-import { link as linkStyles } from '@nextui-org/theme';
+} from "@heroui/navbar";
+import { Skeleton } from "@heroui/skeleton";
+import { link as linkStyles } from "@heroui/theme";
 
 import clsx from 'clsx';
 

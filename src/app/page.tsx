@@ -1,7 +1,7 @@
-import { Code } from '@nextui-org/code';
-import { Link } from '@nextui-org/link';
-import { Snippet } from '@nextui-org/snippet';
-import { button as buttonStyles } from '@nextui-org/theme';
+import { Code } from "@heroui/code";
+import { Link } from "@heroui/link";
+import { Snippet } from "@heroui/snippet";
+import { button as buttonStyles } from "@heroui/theme";
 
 import { GithubIcon } from '^components/icons';
 import { NetworkSwitch } from '^components/network-switch';

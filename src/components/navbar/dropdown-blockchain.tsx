@@ -2,9 +2,9 @@
 
 import Link from 'next/link';
 
-import { Button } from '@nextui-org/button';
-import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/dropdown';
-import { NavbarItem } from '@nextui-org/navbar';
+import { Button } from "@heroui/button";
+import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from "@heroui/dropdown";
+import { NavbarItem } from "@heroui/navbar";
 
 const items = [
    {

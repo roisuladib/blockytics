@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
-import type { TooltipProps } from '@nextui-org/tooltip';
-import { Tooltip as NextTooltip } from '@nextui-org/tooltip';
+import type { TooltipProps } from "@heroui/tooltip";
+import { Tooltip as NextTooltip } from "@heroui/tooltip";
 
 interface Props extends Pick<TooltipProps, 'isDisabled' | 'content' | 'placement' | 'children'> {}
 

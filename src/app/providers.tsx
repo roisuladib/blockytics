@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import type { ThemeProviderProps } from 'next-themes/dist/types';
 
-import { NextUIProvider } from '@nextui-org/system';
+import { HeroUIProvider } from "@heroui/system";
 
 import { Toaster } from 'react-hot-toast';
 import type { State } from 'wagmi';
@@ -24,6 +24,7 @@ interface ProvidersProps extends Children {
    themeProps?: Omit<ThemeProviderProps, 'children'>;
    socketUrl?: string;
    initialState?: State;
+   nonce: string | null;
 }
 
 const ProgressBar = dynamic(() => import('^components/progress-bar').then(mod => mod.default), {
@@ -35,6 +36,7 @@ export default function Providers({
    themeProps,
    socketUrl,
    initialState,
+   nonce,
 }: ProvidersProps) {
    const router = useRouter();
 
@@ -42,16 +44,16 @@ export default function Providers({
 
    const ProviderTres = buildProvidersTree([
       [WagmiProvider, { config: wagmiConfig, initialState, children }],
-      [TanstackProvider, { children }],
+      [TanstackProvider, { children, nonce }],
       [SocketProvider, { url: socketUrl, children }],
    ]);
 
    return (
       <ProviderTres>
          <ProgressBar />
-         <NextUIProvider navigate={router.push}>
+         <HeroUIProvider navigate={router.push}>
             <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
-         </NextUIProvider>
+         </HeroUIProvider>
          <Toaster />
       </ProviderTres>
    );

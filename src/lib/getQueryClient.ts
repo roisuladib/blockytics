@@ -1,5 +1,19 @@
 import { defaultShouldDehydrateQuery, isServer, QueryClient } from '@tanstack/react-query';
 
+import { getErrorObjPayload, getErrorObjStatusCode } from './errors';
+
+export const retry = (failureCount: number, error: unknown) => {
+   const errorPayload = getErrorObjPayload<{ status: number }>(error);
+   const status = errorPayload?.status || getErrorObjStatusCode(error);
+
+   if (status && status >= 400 && status < 500) {
+      // don't do retry for client error responses
+      return false;
+   }
+
+   return failureCount < 2;
+};
+
 function makeQueryClient() {
    return new QueryClient({
       defaultOptions: {
@@ -11,7 +25,13 @@ function makeQueryClient() {
             // refetchOnMount: false,
             // refetchOnWindowFocus: false,
             // refetchOnReconnect: false,
-            // retry: false,
+            retry,
+            throwOnError: error => {
+               const status = getErrorObjStatusCode(error);
+
+               // don't catch error for "Too many requests" response
+               return status === 429;
+            },
          },
          dehydrate: {
             // include pending queries in dehydration

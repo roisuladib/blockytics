@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { Autocomplete, AutocompleteItem } from '@nextui-org/autocomplete';
+import { Autocomplete, AutocompleteItem } from "@heroui/autocomplete";
 
 import { PRESETS } from '^lib/env';
 

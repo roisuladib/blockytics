@@ -6,7 +6,7 @@ export function getEnvValue(envName: keyof IProcessEnv) {
    const envs = (isBrowser() ? window.__envs : process.env) ?? {};
 
    if (isBrowser() && envs.NEXT_PUBLIC_APP_INSTANCE === 'pw') {
-      const storageValue = localStorage.getItem(envName);
+      const storageValue = localStorage.getItem(String(envName));
 
       if (typeof storageValue === 'string') {
          return storageValue;
@@ -34,7 +34,7 @@ export function getExternalAssetFilePath(envName: keyof IProcessEnv) {
 
 export function buildExternalAssetFilePath(name: keyof IProcessEnv, value: string) {
    try {
-      const fileName = name
+      const fileName = String(name)
          .replace(/^NEXT_PUBLIC_/, '')
          .replace(/_URL$/, '')
          .toLowerCase();

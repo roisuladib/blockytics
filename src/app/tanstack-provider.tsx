@@ -4,10 +4,11 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ReactQueryStreamedHydration } from '@tanstack/react-query-next-experimental';
 
+import { GoogleAnalytics } from '^components';
 import { getQueryClient } from '^lib';
 import type { Children } from '^types';
 
-export function TanstackProvider({ children }: Children) {
+export function TanstackProvider({ children, nonce }: Children & { nonce: string | null }) {
    // NOTE: Avoid useState when initializing the query client if you don't
    //       have a suspense boundary between this and the code that may
    //       suspend because React will throw away the client on the initial
@@ -18,6 +19,7 @@ export function TanstackProvider({ children }: Children) {
       <QueryClientProvider client={queryClient}>
          <ReactQueryStreamedHydration>{children}</ReactQueryStreamedHydration>
          <ReactQueryDevtools />
+         <GoogleAnalytics nonce={nonce} />
       </QueryClientProvider>
    );
 }

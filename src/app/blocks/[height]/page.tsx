@@ -2,8 +2,8 @@ import { Suspense } from 'react';
 
 import Link from 'next/link';
 
-import { Button } from '@nextui-org/button';
-import { Skeleton } from '@nextui-org/skeleton';
+import { Button } from "@heroui/button";
+import { Skeleton } from "@heroui/skeleton";
 
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 

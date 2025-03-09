@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 
-import { Skeleton } from '@nextui-org/skeleton';
+import { Skeleton } from "@heroui/skeleton";
 
 import { useQuery } from '@tanstack/react-query';
 

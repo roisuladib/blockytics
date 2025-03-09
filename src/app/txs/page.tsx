@@ -1,8 +1,10 @@
 import { Suspense } from 'react';
 
-import { Spinner } from '@nextui-org/spinner';
+import dynamic from 'next/dynamic';
 
-import { TxsList } from '^components';
+import { Spinner } from "@heroui/spinner";
+
+const TransactionsPage = dynamic(() => import('^components/pages/transactions'), { ssr: false });
 
 export default function Txs() {
    return (
@@ -17,7 +19,7 @@ export default function Txs() {
                </div>
             }>
             <div className="">Transactions</div>
-            <TxsList />
+            <TransactionsPage />
          </Suspense>
       </div>
    );

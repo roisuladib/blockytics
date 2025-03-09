@@ -6,10 +6,13 @@ type Payload = {
 } & RequestInit;
 
 export async function fetcher({ isServer, url, ...requestInit }: Payload) {
-   const res = await fetch(`${isServer ? `${config.api.endpoint}/api/v2` : '/api'}${url}`, {
-      cache: 'no-store',
-      ...requestInit,
-   });
+   const res = await fetch(
+      `${isServer ? `${config.api.endpoint}/api/v2` : '/node-api/proxy/api/v2'}${url}`,
+      {
+         cache: 'no-store',
+         ...requestInit,
+      },
+   );
    const data = await res.json();
 
    return data;

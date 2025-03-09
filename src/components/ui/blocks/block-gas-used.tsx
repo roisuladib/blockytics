@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
-import { Divider } from '@nextui-org/divider';
-import { Skeleton } from '@nextui-org/skeleton';
+import { Divider } from "@heroui/divider";
+import { Skeleton } from "@heroui/skeleton";
 
 import BigNumber from 'bignumber.js';
 

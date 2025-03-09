@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 
-import { Button } from '@nextui-org/button';
+import { Button } from "@heroui/button";
 
 import { Avatar, ConnectKitButton } from 'connectkit';
 

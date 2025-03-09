@@ -3,6 +3,7 @@ import Tooltip from './tooltip';
 import Utilization from './utilization';
 
 export * from './hoc';
+export * from './google-analytics';
 export * from './navbar';
 export * from './ui';
 export * from './flex';

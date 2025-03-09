@@ -2,11 +2,15 @@
 
 import { memo, useCallback, useState } from 'react';
 
+import { useSearchParams } from 'next/navigation';
+
+import { useIsMobile } from "@heroui/use-is-mobile";
+
 import { useQueryClient } from '@tanstack/react-query';
 
-import BlocksList from './blocks-list';
-
 import { subtitle } from '^components/primitives';
+import { BlocksList } from '^components/ui';
+import { getQueryParamString } from '^lib/router';
 import { useSocketChannel, useSocketMessage } from '^lib/socket';
 import type { Block, BlocksResponse, BlockType } from '^types/api/block';
 
@@ -19,7 +23,12 @@ type Props = {
    top?: number;
 };
 
-function BlocksContent({ type, enableSocket, top }: Props) {
+function Blocks({ type, enableSocket, top }: Props) {
+   const isMobile = useIsMobile();
+   const searchParams = useSearchParams();
+   const params = searchParams.get('tab') || '';
+   const tab = getQueryParamString(params);
+
    const queryClient = useQueryClient();
 
    const [socketAlert, setSocketAlert] = useState('');
@@ -91,4 +100,4 @@ function BlocksContent({ type, enableSocket, top }: Props) {
    );
 }
 
-export default memo(BlocksContent);
+export default memo(Blocks);

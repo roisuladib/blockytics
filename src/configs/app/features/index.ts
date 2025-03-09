@@ -1,2 +1,12 @@
+export { default as account } from './account';
+export { default as addressMetadata } from './addressMetadata';
+export { default as addressVerification } from './addressVerification';
 export { default as csvExport } from './csvExport';
+export { default as googleAnalytics } from './googleAnalytics';
 export { default as metasuites } from './metasuites';
+export { default as nameService } from './nameService';
+export { default as publicTagsSubmission } from './publicTagsSubmission';
+export { default as sol2uml } from './sol2uml';
+export { default as stats } from './stats';
+export { default as marketplace } from './marketplace';
+export { default as verifiedTokens } from './verifiedTokens';

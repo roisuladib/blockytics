@@ -1,10 +1,11 @@
 import '^styles/globals.css';
 
 import type { Metadata, Viewport } from 'next';
+import Head from 'next/head';
 import { headers } from 'next/headers';
 import Script from 'next/script';
 
-import { Link } from '@nextui-org/link';
+import { Link } from "@heroui/link";
 
 import clsx from 'clsx';
 import { cookieToInitialState } from 'wagmi';
@@ -39,14 +40,20 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<Children>) {
    const initialState = cookieToInitialState(wagmiConfig, headers().get('cookie'));
+   const nonce = headers().get('x-nonce');
 
    return (
       <html
          suppressHydrationWarning
          lang="en">
-         <head>
-            <Script src="/assets/envs.js" />
-         </head>
+         <Head>
+            <Script
+               async
+               src="/assets/envs.js"
+               strategy="beforeInteractive"
+               {...(nonce && { nonce })}
+            />
+         </Head>
          <body
             className={clsx(
                'min-h-screen bg-background font-sans antialiased',
@@ -56,6 +63,7 @@ export default function RootLayout({ children }: Readonly<Children>) {
             )}>
             <Providers
                initialState={initialState}
+               nonce={nonce}
                socketUrl={`${config.api.socket}${config.api.basePath}/socket/v2`}
                themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
                <div className="relative flex h-screen flex-col">

@@ -6,8 +6,8 @@ const apiEndpoint = [apiSchema, '://', apiHost, apiPort && ':' + apiPort].filter
 export default async function rewrites() {
    return [
       {
-         source: '/api/:path*',
-         destination: `${apiEndpoint}/api/v2/:path*`,
+         source: '/node-api/proxy/:path*',
+         destination: `${apiEndpoint}/:path*`,
       },
    ];
 }
